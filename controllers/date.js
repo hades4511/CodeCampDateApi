@@ -1,20 +1,15 @@
 const getdate = somedatedormat => {
-    try{
-        let date;
-        somedatedormat ? date = new Date(somedatedormat) : date = new Date();
+    let date;
+    somedatedormat ? date = new Date(somedatedormat) : date = new Date();
 
-        const utc = date.toUTCString();
-        const unix = date.valueOf();
-
-        if(utc === "Invalid Date"){
-            throw new Error("Invalid date");
-        }
-
-        return {unix: unix, utc: utc};
-    }
-    catch(err){
+    if(date.toString() === "Invalid Date"){
         return {error: "Invalid Date"};
     }
+
+    const utc = date.toUTCString();
+    const unix = date.valueOf();
+
+    return {unix: unix, utc: utc};
 }
 
 exports.currentDate = (req, res, next) => {
