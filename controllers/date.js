@@ -3,7 +3,7 @@ const getdate = somedatedormat => {
     somedatedormat ? date = new Date(somedatedormat) : date = new Date();
 
     if(date.toString() === "Invalid Date"){
-        return {error: "Invalid Date"};
+        return { error : "Invalid Date" };
     }
 
     const utc = date.toUTCString();
