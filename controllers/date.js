@@ -20,7 +20,7 @@ exports.currentDate = (req, res, next) => {
 }
 
 exports.specificDate = (req, res, next) => {
-    let dateString = req.params.date_string.trim();
+    let dateString = req.params.date;
     /\d{5,}/.test(dateString) ? dateString : dateString = parseInt(dateString);
     const response = getdate(dateString);
     response.error ? scode = 422 : scode = 200;
